@@ -1,19 +1,9 @@
-import express from 'express';
+import 'dotenv/config'
+import app from './app'
 
-import { Router, Request, Response } from 'express';
 
-const app = express();
 
-const route = Router();
-
-app.use(express.json())
-
-route.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'hello world with Typescript' })
+app.listen(process.env.PORT, () =>{
+  console.log(`server running in http://localhost:${process.env.PORT}`)
 })
-
-app.use(route)
-
-
-app.listen(3333, () => 'server running on port 3333')
 
