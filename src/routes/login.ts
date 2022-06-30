@@ -4,7 +4,7 @@ import LoginController from "../controllers/LoginController";
 
 const router = Router();
 
-router.get('/', LoginController.verify)
+router.get('/verifyuser', LoginController.verify)
 
 export default router
 
