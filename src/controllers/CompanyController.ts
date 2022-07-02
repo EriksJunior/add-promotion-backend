@@ -1,7 +1,12 @@
 import { Request, Response } from 'express'
+import  CompanyService  from '../services/CompanyService'
 
-class CompanyController {
-  public async verify(req: Request, res: Response): Promise<any> {
+  class CompanyController {
+  // #companyService: CompanyService //o cerquilha serve para deixar o metodo CompanyService PRIVADO
+
+   async verify(req: Request, res: Response) {
+    const data = await CompanyService.save()
+    res.send(data)
   }
 }
 

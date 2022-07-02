@@ -1,10 +1,9 @@
 import { Router } from "express";
 
-import LoginController from "../controllers/LoginController";
+import CompanyController  from "../controllers/CompanyController";
 
 const router = Router();
-
-router.get('/verifyuser', LoginController.verify)
+router.get('/verifyuser', CompanyController.verify)
 
 export default router
 

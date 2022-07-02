@@ -1,6 +1,6 @@
 import { randomUUID } from 'crypto'
 
-class LoginEntity {
+class CompanyEntity {
   uuid: string
   address: string
   district: string
@@ -12,7 +12,7 @@ class LoginEntity {
   password: string
   secret: string
 
-  constructor(body: Omit<LoginEntity, 'uuid'>, uuid = randomUUID()) {
+  constructor(body: Omit<CompanyEntity, 'uuid'>, uuid = randomUUID()) {
     this.uuid = uuid
     this.address = body.address
     this.district = body.district
@@ -27,4 +27,4 @@ class LoginEntity {
 
 }
 
-export { LoginEntity };
+export { CompanyEntity };
