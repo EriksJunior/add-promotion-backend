@@ -1,11 +1,16 @@
 import { Request, Response } from 'express'
-import  CompanyService  from '../services/CompanyService'
+import CompanyService  from '../services/CompanyService'
 
-  class CompanyController {
-  // #companyService: CompanyService //o cerquilha serve para deixar o metodo CompanyService PRIVADO
-   async create(req: Request, res: Response) {
-    const data = await CompanyService.save()
-    res.send(data)
+class CompanyController {
+
+  async create(req: Request, res: Response) {
+    try {
+      const data = await CompanyService.save()
+      res.send(data)
+    } catch (error) {
+      console.log(error)
+    }
+ 
   }
 }
 
