@@ -1,18 +1,20 @@
 import CompanyRepo from "../repositories/CompanyRepo";
-import { BaseRepository } from "../repositories/BaseRepository";
 import { CompanyEntity } from "../entities/CompanyEntity";
 import { GenericError } from "../errors/GenericError";
-import companySchema from "../validators/CompanyValidate";
+import companyValidate from "../validators/CompanyValidate";
 
 class CompanyService {
-  async save(body: CompanyEntity):Promise<any> {
+  async save(body: CompanyEntity) {
     const companyTy = new CompanyEntity(body)
 
-    const resultValidate = companySchema.validate(companyTy)
-    if(resultValidate.error){
-      console.log(resultValidate.error.details[0].message)
-    }
- 
+    const validationResult = companyValidate.validate(companyTy)
+    
+    if (validationResult.error){
+      
+      throw new Error(`${validationResult.error}`);
+    } 
+
+
     const id = await CompanyRepo.save(companyTy)
     return id
   }
