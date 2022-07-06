@@ -5,8 +5,11 @@ class CompanyController {
 
   async create(req: Request, res: Response) {
     try {
-      const data = await CompanyService.save()
-      res.send(data)
+      const body = req.body
+
+      const data = await CompanyService.save(body)
+      res.status(200).json({data})
+
     } catch (error) {
       console.log(error)
     }

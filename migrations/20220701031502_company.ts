@@ -5,8 +5,7 @@ import { Knex } from "knex";
 export async function up(knex: Knex): Promise<void> {
   return await knex.schema.createTable('company', (table) => {
     table.string('id').notNullable().primary();
-    table.uuid('idEmpresa').notNullable();
-    table.string('companyName', 36);
+    table.string('companyName', 100).notNullable();
     table.string('address', 100).notNullable();
     table.string('district', 50).notNullable();
     table.integer('number').notNullable();

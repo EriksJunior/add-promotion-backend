@@ -1,7 +1,8 @@
 import { randomUUID } from 'crypto'
 
 class CompanyEntity {
-  uuid: string
+  id: string
+  companyName: string
   address: string
   district: string
   number: number
@@ -11,9 +12,12 @@ class CompanyEntity {
   email: string
   password: string
   secret: string
+  createAt: Date
+  updateAt: Date
 
-  constructor(body: Omit<CompanyEntity, 'uuid'>, uuid = randomUUID()) {
-    this.uuid = uuid
+  constructor(body: Omit<CompanyEntity, 'id'>, id = randomUUID()) {
+    this.id = id
+    this.companyName = body.companyName
     this.address = body.address
     this.district = body.district
     this.number = body.number
@@ -23,6 +27,8 @@ class CompanyEntity {
     this.email = body.email
     this.password = body.password
     this.secret = body.secret
+    this.createAt = new Date()
+    this.updateAt = new Date()
   }
 
 }

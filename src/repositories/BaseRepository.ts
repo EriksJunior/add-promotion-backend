@@ -19,10 +19,10 @@ import { Knex } from "knex";
     return data
   }
 
-  async save() {
-    // await this.database.table(this.table).insert(data)
-    const testte = 'rewrwerwer'
-    return testte
+  async save(data: T) {
+    const id = await this.database.table(this.table).insert(data)
+    console.log(id)
+    return id
   }
 
   async update(data: T, id: string, idEmpresa: string) {

@@ -1,7 +1,14 @@
-import { Knex } from 'knex'
 import { CompanyEntity } from "../entities/CompanyEntity"
 import { BaseRepository } from "./BaseRepository"
 
-export class CompanyRepo extends BaseRepository<CompanyEntity> {
- 
+import database from '../config/database'
+
+
+ class CompanyRepo extends BaseRepository<CompanyEntity> {
+  constructor() {
+    super('company', database)
+  }
+  
 }
+
+export default new CompanyRepo()
