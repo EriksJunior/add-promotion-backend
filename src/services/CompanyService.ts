@@ -2,6 +2,7 @@ import CompanyRepo from "../repositories/CompanyRepo";
 import { CompanyEntity } from "../entities/CompanyEntity";
 import { GenericError } from "../errors/GenericError";
 import companyValidate from "../validators/CompanyValidate";
+import ErrorHandling from "../utils/ErrorHandling";
 
 class CompanyService {
   async save(body: CompanyEntity) {
@@ -10,8 +11,7 @@ class CompanyService {
     const validationResult = companyValidate.validate(companyTy)
     
     if (validationResult.error){
-      
-      throw new Error(`${validationResult.error}`);
+      throw new Error(`${await ErrorHandling.ErrorHandling(validationResult.error.details)}`);
     } 
 
 

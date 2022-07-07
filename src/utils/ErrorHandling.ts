@@ -1,9 +1,15 @@
-import Joi from "joi"
+
+import Joi from "joi";
 
 class ErrorHandling{
-  async ErrorHandling(value: Array<Object>){
-    Promise.resolve(value).then(() =>{
-      console.log()
-    })
+   ErrorHandling(value: Array<Joi.ValidationErrorItem>){
+    const result = value.map((e) =>{
+        const newObject = {message: e.message}
+        return newObject
+      }) 
+      console.log(result)
+    return result
   }
 }
+
+export default new ErrorHandling()
