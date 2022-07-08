@@ -9,14 +9,23 @@ class CompanyService {
     const companyTy = new CompanyEntity(body)
 
     const validationResult = companyValidate.validate(companyTy)
-    
-    if (validationResult.error){
-      throw new Error(`${await ErrorHandling.ErrorHandling(validationResult.error.details)}`);
-    } 
+
+    if (validationResult.error)
+      throw ErrorHandling.ErrorHandling(validationResult.error.details)
 
 
-    const id = await CompanyRepo.save(companyTy)
-    return id
+    await CompanyRepo.save(companyTy)
+    return companyTy.id
+  }
+
+  async search(id: string) {
+     const result = await CompanyRepo.findById(id)
+     
+    if(!result){
+      throw new Error('Erro ao buscar informações do cliente')
+    }
+
+    return result
   }
 }
 

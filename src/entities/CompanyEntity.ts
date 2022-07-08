@@ -10,6 +10,7 @@ class CompanyEntity {
   cep: string
   cpfCnpj: string
   email: string
+  telephone: string
   password: string
   secret: string
   createAt: Date
@@ -25,6 +26,7 @@ class CompanyEntity {
     this.cep = body.cep
     this.cpfCnpj = body.cpfCnpj
     this.email = body.email
+    this.telephone = body.telephone
     this.password = body.password
     this.secret = body.secret
     this.createAt = new Date()

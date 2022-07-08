@@ -4,6 +4,7 @@ import CompanyController from "../controllers/CompanyController";
 
 const router = Router();
 
-router.post('/createuser', CompanyController.create)
+router.post('/createcompany', CompanyController.create)
+router.get('/searchcompany/:id', CompanyController.search)
 
 export default router

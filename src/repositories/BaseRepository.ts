@@ -9,27 +9,23 @@ import { Knex } from "knex";
     this.database = database;
   }
 
-  async findById(id: string, idEmpresa: string): Promise<T> {
+  async findById(id: string): Promise<T> {
     const data = await this.database.select('*')
     .table(this.table)
     .where('id', '=', id) 
-    .andWhere('idEmpresa', '=', idEmpresa)
     .first()
 
     return data
   }
 
   async save(data: T) {
-    const id = await this.database.table(this.table).insert(data)
-    console.log(id)
-    return id
+    await this.database.table(this.table).insert(data)
   }
 
-  async update(data: T, id: string, idEmpresa: string) {
+  async update(data: T, id: string) {
     await this.database.table(this.table)
       .update(data)
       .where('id', '=', id)
-      .andWhere('idEmpresa', '=', idEmpresa)
   }
 
   async delete(id: string, idEmpresa: string) {
