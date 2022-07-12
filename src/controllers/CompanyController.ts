@@ -5,8 +5,8 @@ class CompanyController {
 
   async create(req: Request, res: Response) {
     try {
-      const body = req.body
-      const data = await CompanyService.save(body)
+      const dataUser = req.body
+      const data = await CompanyService.save(dataUser)
 
       res.status(201).json(data)
     } catch (error: any) {
@@ -26,7 +26,15 @@ class CompanyController {
   }
 
   async update(req: Request, res: Response) {
+    try {
+      const id = req.params.id
+      const dataUser = req.body
+      const data = await CompanyService.update(dataUser, id)
 
+      return res.status(200).json(data)
+    } catch (error: any) {
+      return res.status(400).json({error: error.message})
+    }
   }
 
   async delete(req: Request, res: Response) {

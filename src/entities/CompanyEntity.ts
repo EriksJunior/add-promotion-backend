@@ -13,7 +13,7 @@ class CompanyEntity {
   telephone: string
   password: string
   secret: string
-  createAt: Date
+  createAt?: Date
   updateAt: Date
 
   constructor(body: Omit<CompanyEntity, 'id'>, id = randomUUID()) {
