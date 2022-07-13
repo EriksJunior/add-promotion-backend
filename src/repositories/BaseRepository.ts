@@ -29,7 +29,7 @@ export class BaseRepository<T> {
   }
 
   async delete(id: string) {
-    await this.database.table(this.table)
+    return await this.database.table(this.table)
       .delete()
       .where('id', '=', id)
   }

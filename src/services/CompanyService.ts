@@ -2,6 +2,7 @@ import CompanyRepo from "../repositories/CompanyRepo";
 import { CompanyEntity } from "../entities/CompanyEntity";
 import companyValidate from "../validators/CompanyValidate";
 import ErrorHandling from "../utils/ErrorHandling";
+import GenericError from "../errors/GenericError";
 
 class CompanyService {
   async save(body: CompanyEntity) {
@@ -41,7 +42,10 @@ class CompanyService {
   }
 
   async delete(id: string) {
-    await CompanyRepo.delete(id)
+    const result = await CompanyRepo.delete(id)
+    
+    if (!result)
+      throw GenericError.database('Não foi possivel deletar a company')
   }
 }
 
