@@ -1,6 +1,6 @@
 export class GenericError {
 
-  database(message: string){
+  database(message: string) {
     return message
   }
 

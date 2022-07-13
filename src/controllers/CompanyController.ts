@@ -40,11 +40,11 @@ class CompanyController {
   async delete(req: Request, res: Response) {
     try {
       const id = req.params.id
-      const teste = await CompanyService.delete(id)
+      await CompanyService.delete(id)
 
       return res.status(200).json({ message: 'Registro deletado' })
     } catch (error: any) {
-      return res.status(400).json({ error: error })
+      return res.status(500).json({ error: error })
     }
 
   }

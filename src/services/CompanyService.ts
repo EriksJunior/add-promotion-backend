@@ -43,9 +43,11 @@ class CompanyService {
 
   async delete(id: string) {
     const result = await CompanyRepo.delete(id)
-    
+
     if (!result)
       throw GenericError.database('Não foi possivel deletar a company')
+
+    return
   }
 }
 
