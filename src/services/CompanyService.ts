@@ -18,26 +18,30 @@ class CompanyService {
   }
 
   async search(id: string) {
-     const result = await CompanyRepo.findById(id)
-     
-    if(!result){
+    const result = await CompanyRepo.findById(id)
+
+    if (!result) {
       throw new Error('Erro ao buscar informações do cliente')
     }
 
     return result
   }
 
-  async update(body: CompanyEntity, id: string){
+  async update(body: CompanyEntity, id: string) {
     const companyTy = new CompanyEntity(body, id)
-    
+
     const validationResult = companyValidate.validate(companyTy)
 
-    if(validationResult.error)
+    if (validationResult.error)
       throw ErrorHandling.ErrorHandling(validationResult.error.details)
 
-      await CompanyRepo.update(companyTy, id)
+    await CompanyRepo.update(companyTy, id)
 
-      return companyTy.id
+    return companyTy.id
+  }
+
+  async delete(id: string) {
+    await CompanyRepo.delete(id)
   }
 }
 
