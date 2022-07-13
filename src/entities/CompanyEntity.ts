@@ -13,8 +13,8 @@ class CompanyEntity {
   telephone: string
   password: string
   secret: string
-  createAt?: Date
-  updateAt: Date
+  createdAt?: Date
+  updatedAt: Date
 
   constructor(body: Omit<CompanyEntity, 'id'>, id = randomUUID()) {
     this.id = id
@@ -29,10 +29,9 @@ class CompanyEntity {
     this.telephone = body.telephone
     this.password = body.password
     this.secret = body.secret
-    this.createAt = new Date()
-    this.updateAt = new Date()
+    this.createdAt = new Date()
+    this.updatedAt = new Date()
   }
-
 }
 
 export { CompanyEntity };
