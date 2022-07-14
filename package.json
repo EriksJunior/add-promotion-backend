@@ -13,7 +13,7 @@
     "mysql": "^2.18.1"
   },
   "scripts": {
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev": "ts-node-dev --inspect --transpile-only --respawn --ignore-watch node_modules --no-notify src/server.ts",
     "build": "tsc"
   },
   "devDependencies": {
