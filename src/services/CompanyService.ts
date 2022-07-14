@@ -6,8 +6,7 @@ import { randomUUID } from 'crypto'
 
 class CompanyService {
   async save(body: CompanyEntity) {
-    const id = randomUUID();
-    const companyTy = new CompanyEntity(body, id, true)
+    const companyTy = new CompanyEntity(body)
 
     const validationResult = companyValidate.validate(companyTy)
 
@@ -30,7 +29,7 @@ class CompanyService {
   }
 
   async update(body: CompanyEntity, id: string) {
-    const companyTy = new CompanyEntity(body, id, false)
+    const companyTy = new CompanyEntity(body, id)
 
     const validationResult = companyValidate.validate(companyTy)
 
