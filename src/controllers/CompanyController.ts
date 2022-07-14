@@ -29,9 +29,9 @@ class CompanyController {
     try {
       const id = req.params.id
       const dataUser = req.body
-      const data = await CompanyService.update(dataUser, id)
+      await CompanyService.update(dataUser, id)
 
-      return res.status(200).json(data)
+      return res.status(200).json({message: 'dados atualizados!'})
     } catch (error: any) {
       return res.status(400).json({ error: error.message })
     }
@@ -44,7 +44,7 @@ class CompanyController {
 
       return res.status(200).json({ message: 'Registro deletado' })
     } catch (error: any) {
-      return res.status(500).json({ error: error })
+      return res.status(500).json({ error: error.message })
     }
 
   }

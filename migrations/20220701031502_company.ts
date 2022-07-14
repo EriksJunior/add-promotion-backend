@@ -16,7 +16,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string('telephone', 20).defaultTo(null);
     table.string('password', 100).notNullable();
     table.string('secret', 100).notNullable();
-    table.dateTime('createdAt').notNullable();
+    table.dateTime('createdAt').nullable();
     table.dateTime('updatedAt').nullable();
   })
 }
