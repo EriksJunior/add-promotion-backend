@@ -2,7 +2,6 @@ import CompanyRepo from "../repositories/CompanyRepo";
 import { CompanyEntity } from "../entities/CompanyEntity";
 import companyValidate from "../validators/CompanyValidate";
 import ErrorHandling from "../utils/ErrorHandling";
-import { randomUUID } from 'crypto'
 
 class CompanyService {
   async save(body: CompanyEntity) {
