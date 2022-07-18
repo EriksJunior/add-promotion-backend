@@ -47,7 +47,7 @@ class CompanyService {
     const result = await CompanyRepo.delete(id)
 
     if (!result)
-      throw new Error('Não foi possivel deletar a company')
+      throw new Error('Não foi possivel deletar a empresa')
 
     return
   }

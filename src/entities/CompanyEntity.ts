@@ -29,7 +29,6 @@ class CompanyEntity {
     this.telephone = body.telephone
     this.password = body.password
     this.secret = body.secret
-    this.createdAt = new Date()
     this.updatedAt = new Date()
   }
 }
