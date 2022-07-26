@@ -15,7 +15,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string('cpfCnpj', 18).notNullable();
     table.string('email', 50).notNullable();
     table.string('password', 100).notNullable();
-    table.integer('confirmed').notNullable().defaultTo(0);
+    table.boolean('confirmed').notNullable().defaultTo(false);
     table.string('telephone', 20).defaultTo(null);
     table.string('secret', 100).notNullable();
     table.dateTime('createdAt').nullable();

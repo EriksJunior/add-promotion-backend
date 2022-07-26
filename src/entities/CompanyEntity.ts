@@ -13,6 +13,7 @@ class CompanyEntity {
   telephone: string
   password: string
   secret: string
+  confirmed: boolean
   createdAt?: Date
   updatedAt: Date
 
@@ -29,6 +30,7 @@ class CompanyEntity {
     this.telephone = body.telephone
     this.password = body.password
     this.secret = body.secret
+    this.confirmed = false
     this.updatedAt = new Date()
   }
 }
