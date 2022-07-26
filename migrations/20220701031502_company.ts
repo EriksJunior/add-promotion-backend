@@ -10,11 +10,13 @@ export async function up(knex: Knex): Promise<void> {
     table.string('district', 50).notNullable();
     table.integer('number').notNullable();
     table.string('city', 50).notNullable();
+    table.string('uf', 2).notNullable();
     table.string('cep', 9).notNullable();
     table.string('cpfCnpj', 18).notNullable();
     table.string('email', 50).notNullable();
-    table.string('telephone', 20).defaultTo(null);
     table.string('password', 100).notNullable();
+    table.integer('confirmed').notNullable().defaultTo(0);
+    table.string('telephone', 20).defaultTo(null);
     table.string('secret', 100).notNullable();
     table.dateTime('createdAt').nullable();
     table.dateTime('updatedAt').nullable();
