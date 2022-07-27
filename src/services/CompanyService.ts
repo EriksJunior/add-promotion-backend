@@ -13,9 +13,11 @@ class CompanyService {
     if (validationResult.error)
       throw ErrorHandling.ErrorHandling(validationResult.error.details)
 
-
     await CompanyRepo.save(companyTy)
-    // await RegistrationConfirmation.Confirm()
+
+    const result = await RegistrationConfirmation.Confirm(companyTy.email)
+    console.log(result)
+
     return companyTy.id
   }
 
