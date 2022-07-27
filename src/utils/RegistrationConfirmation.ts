@@ -2,9 +2,10 @@ import nodemailer from 'nodemailer'
 
 class RegistrationConfirmation {
   async Confirm() {
+    // params: smtp: string, port: number, email: string, password: string
     const tranporter = nodemailer.createTransport({
       host: process.env.APP_HOST,
-      port: process.env.APP_PORT,
+      port:  587,
       auth: {
         user: process.env.APP_EMAIL,
         pass: process.env.APP_PASSWORD
