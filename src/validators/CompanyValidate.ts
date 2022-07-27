@@ -13,6 +13,7 @@ const companyValidate = Joi.object({
   telephone: Joi.string().min(8).max(20).rule({message: 'Email deve ser valido, e deve ter no maximo 50 caracteres'}),
   password: Joi.string().required().max(100).min(6).rule({message: 'Senha incorreta, deve ter no minimo 6 caracteres e no maximo 100'}),
   secret: Joi.string().required().max(100).rule({message: 'Segredo incorreto, deve ter no maximo 100'}),
+  confirmed: Joi.boolean(),
   createdAt: Joi.date(),
   updatedAt: Joi.date().required(),
 }).options({ abortEarly: false })
