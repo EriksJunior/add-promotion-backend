@@ -2,6 +2,7 @@ import CompanyRepo from "../repositories/CompanyRepo";
 import { CompanyEntity } from "../entities/CompanyEntity";
 import companyValidate from "../validators/CompanyValidate";
 import ErrorHandling from "../utils/ErrorHandling";
+import RegistrationConfirmation from "../utils/RegistrationConfirmation";
 
 class CompanyService {
   async save(body: CompanyEntity) {
@@ -14,6 +15,7 @@ class CompanyService {
 
 
     await CompanyRepo.save(companyTy)
+    // await RegistrationConfirmation.Confirm()
     return companyTy.id
   }
 

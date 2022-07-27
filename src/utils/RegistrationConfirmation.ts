@@ -3,11 +3,11 @@ import nodemailer from 'nodemailer'
 class RegistrationConfirmation {
   async Confirm() {
     const tranporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
+      host: process.env.APP_HOST,
+      port: process.env.APP_PORT,
       auth: {
-        user: 'eriks@winfit.com.br',
-        pass: 'bmsEriks'
+        user: process.env.APP_EMAIL,
+        pass: process.env.APP_PASSWORD
       }
     })
 
