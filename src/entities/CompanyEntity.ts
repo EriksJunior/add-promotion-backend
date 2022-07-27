@@ -32,7 +32,7 @@ class CompanyEntity {
     this.telephone = body.telephone
     this.password = body.password
     this.secret = body.secret
-    this.confirmed = false
+    this.confirmed = body.confirmed
     this.updatedAt = new Date()
   }
 }
