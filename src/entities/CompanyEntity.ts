@@ -8,6 +8,7 @@ class CompanyEntity {
   number: number
   city: string
   cep: string
+  uf: string
   cpfCnpj: string
   email: string
   telephone: string
@@ -25,6 +26,7 @@ class CompanyEntity {
     this.number = body.number
     this.city = body.city
     this.cep = body.cep
+    this.uf = body.uf
     this.cpfCnpj = body.cpfCnpj
     this.email = body.email
     this.telephone = body.telephone
