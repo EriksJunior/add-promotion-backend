@@ -1,7 +1,7 @@
 import CompanyRepo from "../repositories/CompanyRepo";
 import { CompanyEntity } from "../entities/CompanyEntity";
 import companyValidate from "../validators/CompanyValidate";
-import ErrorHandling from "../utils/ErrorHandling";
+import JoiErrorHandling from "../utils/errors/JoiErrorHandlingJoi";
 import RegistrationConfirmation from "../utils/RegistrationConfirmation";
 
 class CompanyService {
@@ -11,7 +11,7 @@ class CompanyService {
     const validationResult = companyValidate.validate(companyTy)
 
     if (validationResult.error)
-      throw ErrorHandling.ErrorHandling(validationResult.error.details)
+      throw JoiErrorHandling.JoiErrorHandling(validationResult.error.details)
 
     await CompanyRepo.save(companyTy)
 
@@ -37,7 +37,7 @@ class CompanyService {
     const validationResult = companyValidate.validate(companyTy)
 
     if (validationResult.error)
-      throw ErrorHandling.ErrorHandling(validationResult.error.details)
+      throw JoiErrorHandling.JoiErrorHandling(validationResult.error.details)
 
     const result = await CompanyRepo.update(companyTy, id)
 

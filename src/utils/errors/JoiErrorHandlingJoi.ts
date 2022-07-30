@@ -1,8 +1,8 @@
 
 import Joi from "joi";
 
-class ErrorHandling{
-   ErrorHandling(value: Array<Joi.ValidationErrorItem>){
+class JoiErrorHandling{
+   JoiErrorHandling(value: Array<Joi.ValidationErrorItem>){
     const result = value.map((e) =>{
         return e.message
       }) 
@@ -10,4 +10,4 @@ class ErrorHandling{
   }
 }
 
-export default new ErrorHandling()
+export default new JoiErrorHandling()
