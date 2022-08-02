@@ -8,7 +8,6 @@ import database from '../config/database'
   constructor() {
     super('company', database)
   }
-  
 }
 
 export default new CompanyRepo()
