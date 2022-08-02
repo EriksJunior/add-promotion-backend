@@ -1,12 +1,17 @@
 import { Request, Response } from 'express'
-import CompanyService from '../services/CompanyService'
+import { CompanyService } from '../services/CompanyService'
 
-class CompanyController {
+export class CompanyController {
+  #companyService: CompanyService
+
+  constructor(companyService: CompanyService) {
+    this.#companyService = companyService
+  }
 
   async create(req: Request, res: Response): Promise<Response> {
     try {
       const dataUser = req.body
-      const data = await CompanyService.save(dataUser)
+      const data = await this.#companyService.save(dataUser)
 
       return res.status(201).json(data)
     } catch (error: any) {
@@ -17,7 +22,7 @@ class CompanyController {
   async search(req: Request, res: Response): Promise<Response> {
     try {
       const id = req.params.id
-      const data = await CompanyService.search(id)
+      const data = await this.#companyService.search(id)
 
       return res.status(200).json(data)
     } catch (error: any) {
@@ -29,9 +34,9 @@ class CompanyController {
     try {
       const id = req.params.id
       const dataUser = req.body
-      await CompanyService.update(dataUser, id)
+      await this.#companyService.update(dataUser, id)
 
-      return res.status(200).json({message: 'dados atualizados!'})
+      return res.status(200).json({ message: 'dados atualizados!' })
     } catch (error: any) {
       return res.status(400).json({ error: error.message })
     }
@@ -40,7 +45,7 @@ class CompanyController {
   async delete(req: Request, res: Response): Promise<Response> {
     try {
       const id = req.params.id
-      await CompanyService.delete(id)
+      await this.#companyService.delete(id)
 
       return res.status(200).json({ message: 'Registro deletado' })
     } catch (error: any) {
@@ -50,5 +55,3 @@ class CompanyController {
   }
 
 }
-
-export default new CompanyController()

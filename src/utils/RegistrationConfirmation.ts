@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer'
 
 class RegistrationConfirmation {
   async Confirm(receiver: string) {
-    const tranporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       host: process.env.APP_HOST,
       port:  587,
       auth: {
@@ -11,7 +11,7 @@ class RegistrationConfirmation {
       }
     })
 
-    const result = await tranporter.sendMail({
+    const result = await transporter.sendMail({
       from: process.env.APP_EMAIL,
       to: receiver, //email do destinatario
       subject: "Confirme seu email!",
