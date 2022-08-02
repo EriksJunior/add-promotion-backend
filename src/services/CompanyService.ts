@@ -1,13 +1,23 @@
-import CompanyRepo from "../repositories/CompanyRepo";
-import { CompanyEntity } from "../entities/CompanyEntity";
-import companyValidate from "../validators/CompanyValidate";
 import JoiErrorHandling from "../utils/errors/JoiErrorHandlingJoi";
+
+import CompanyRepo from "../repositories/CompanyRepo";
+
+import { CompanyEntity } from "../entities/CompanyEntity";
+import { IMailProvider, IMessage } from "../providers/IMailProvider";
+
+import companyValidate from "../validators/CompanyValidate";
 import RegistrationConfirmation from "../utils/RegistrationConfirmation";
 
-class CompanyService {
+export class CompanyService {
+  #mailProvider: IMailProvider
+
+  constructor(mailProvider: IMailProvider) {
+    this.#mailProvider = mailProvider
+  }
+
   async save(body: CompanyEntity) {
     const companyTy = new CompanyEntity(body)
-
+    
     const validationResult = companyValidate.validate(companyTy)
 
     if (validationResult.error)
@@ -15,8 +25,15 @@ class CompanyService {
 
     await CompanyRepo.save(companyTy)
 
-    const result = await RegistrationConfirmation.Confirm(companyTy.email)
-    console.log(result)
+    const teste = {
+      from: process.env.APP_EMAIL,
+      to: companyTy.email, //email do destinatario
+      subject: "Confirme seu email!",
+      text: "olá, somos do promotionAPP por favor confirme seu email para utilizar nossa plataforma"
+    }
+
+    // const result = await RegistrationConfirmation.Confirm(companyTy.email)
+    await this.#mailProvider.sendMail(teste as IMessage)
 
     return companyTy.id
   }
@@ -44,7 +61,7 @@ class CompanyService {
     if (!result)
       throw new Error('Não foi possível atualizar informações do cliente')
 
-    return 
+    return
   }
 
   async delete(id: string) {
@@ -57,4 +74,3 @@ class CompanyService {
   }
 }
 
-export default new CompanyService()

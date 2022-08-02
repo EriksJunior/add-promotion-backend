@@ -1,12 +1,23 @@
-import { Router } from "express";
+import { request, response, Router } from "express";
 
-import CompanyController from "../controllers/CompanyController";
+import { companyController } from "../controllers";
 
 const router = Router();
 
-router.post('/createcompany', CompanyController.create)
-router.get('/searchcompany/:id', CompanyController.search)
-router.put('/updatecompany/:id', CompanyController.update)
-router.delete('/deletecompany/:id', CompanyController.delete)
+router.post('/createcompany', (request, response) => {
+  return companyController.create(request, response)
+})
+
+router.get('/searchcompany/:id', (request, response) => {
+  return companyController.search(request, response)
+})
+
+router.put('/updatecompany/:id', (request, response) => {
+  return companyController.update(request, response)
+})
+
+router.delete('/deletecompany/:id', (request, response) => {
+  return companyController.delete(request, response)
+})
 
 export default router
