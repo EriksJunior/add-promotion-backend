@@ -3,29 +3,29 @@ import CompanyService from '../services/CompanyService'
 
 class CompanyController {
 
-  async create(req: Request, res: Response) {
+  async create(req: Request, res: Response): Promise<Response> {
     try {
       const dataUser = req.body
       const data = await CompanyService.save(dataUser)
 
-      res.status(201).json(data)
+      return res.status(201).json(data)
     } catch (error: any) {
-      res.status(400).json({ error: error })
+      return res.status(400).json({ error: error })
     }
   }
 
-  async search(req: Request, res: Response) {
+  async search(req: Request, res: Response): Promise<Response> {
     try {
       const id = req.params.id
       const data = await CompanyService.search(id)
 
-      res.status(200).json(data)
+      return res.status(200).json(data)
     } catch (error: any) {
-      res.status(400).json({ error: error.message })
+      return res.status(400).json({ error: error.message })
     }
   }
 
-  async update(req: Request, res: Response) {
+  async update(req: Request, res: Response): Promise<Response> {
     try {
       const id = req.params.id
       const dataUser = req.body
@@ -37,7 +37,7 @@ class CompanyController {
     }
   }
 
-  async delete(req: Request, res: Response) {
+  async delete(req: Request, res: Response): Promise<Response> {
     try {
       const id = req.params.id
       await CompanyService.delete(id)
