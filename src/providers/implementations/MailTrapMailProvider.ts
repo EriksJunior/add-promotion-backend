@@ -16,12 +16,12 @@ export class MailtrapMailProvider implements IMailProvider {
     })
   }
 
-  async sendMail(message: IMessage): Promise<void> {
+  async sendMail(receiver: IMessage): Promise<void> {
     await this.#transporte.sendMail({
-      to: message.to,
+      to: receiver.to,
       from: process.env.APP_EMAIL,
-      subject: message.subject,
-      text: message.text
+      subject: "Confirme seu email!",
+      text: "olá, somos do promotionAPP por favor confirme seu email para utilizar nossa plataforma"
     })
   }
 }

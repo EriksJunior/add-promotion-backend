@@ -6,8 +6,7 @@ import { CompanyEntity } from "../entities/CompanyEntity";
 import { IMailProvider, IMessage } from "../providers/IMailProvider";
 
 import companyValidate from "../validators/CompanyValidate";
-import RegistrationConfirmation from "../utils/RegistrationConfirmation";
-
+import DataToConfirmRegistration from "../utils/DataToConfirmRegistration";
 export class CompanyService {
   #mailProvider: IMailProvider
 
@@ -19,21 +18,13 @@ export class CompanyService {
     const companyTy = new CompanyEntity(body)
     
     const validationResult = companyValidate.validate(companyTy)
-
     if (validationResult.error)
       throw JoiErrorHandling.JoiErrorHandling(validationResult.error.details)
 
     await CompanyRepo.save(companyTy)
 
-    const teste = {
-      from: process.env.APP_EMAIL,
-      to: companyTy.email, //email do destinatario
-      subject: "Confirme seu email!",
-      text: "olá, somos do promotionAPP por favor confirme seu email para utilizar nossa plataforma"
-    }
-
-    // const result = await RegistrationConfirmation.Confirm(companyTy.email)
-    await this.#mailProvider.sendMail(teste as IMessage)
+    const dataEmail = DataToConfirmRegistration.data(companyTy.email)
+    await this.#mailProvider.sendMail(dataEmail)
 
     return companyTy.id
   }
