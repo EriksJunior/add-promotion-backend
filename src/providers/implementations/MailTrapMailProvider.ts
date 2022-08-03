@@ -1,4 +1,4 @@
-import { IMailProvider, IMessage } from "../IMailProvider";
+import { IMailProvider, IMessage } from "../../interfaces/IMailProvider";
 import nodemailder from 'nodemailer'
 import Mail from "nodemailer/lib/mailer";
 
