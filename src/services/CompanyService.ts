@@ -3,7 +3,7 @@ import JoiErrorHandling from "../utils/errors/JoiErrorHandlingJoi";
 import CompanyRepo from "../repositories/CompanyRepo";
 
 import { CompanyEntity } from "../entities/CompanyEntity";
-import { IMailProvider, IMessage } from "../providers/IMailProvider";
+import { IMailProvider } from "../providers/IMailProvider";
 
 import companyValidate from "../validators/CompanyValidate";
 import DataToConfirmRegistration from "../utils/DataToConfirmRegistration";
@@ -23,7 +23,7 @@ export class CompanyService {
 
     await CompanyRepo.save(companyTy)
 
-    const dataEmail = DataToConfirmRegistration.data(companyTy.email)
+    const dataEmail = DataToConfirmRegistration.getInformationFromEmail(companyTy.email)
     await this.#mailProvider.sendMail(dataEmail)
 
     return companyTy.id
