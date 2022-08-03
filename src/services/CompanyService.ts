@@ -3,15 +3,18 @@ import JoiErrorHandling from "../utils/errors/JoiErrorHandlingJoi";
 import CompanyRepo from "../repositories/CompanyRepo";
 
 import { CompanyEntity } from "../entities/CompanyEntity";
-import { IMailProvider } from "../providers/IMailProvider";
+import { IMailProvider } from "../interfaces/IMailProvider";
+import { IBaseRepository } from "../interfaces/IBaseRepository";
 
 import companyValidate from "../validators/CompanyValidate";
 import DataToConfirmRegistration from "../utils/DataToConfirmRegistration";
 export class CompanyService {
   #mailProvider: IMailProvider
+  #baseRepository: IBaseRepository
 
-  constructor(mailProvider: IMailProvider) {
+  constructor(mailProvider: IMailProvider, baseRepository: IBaseRepository) {
     this.#mailProvider = mailProvider
+    this.#baseRepository = baseRepository
   }
 
   async save(body: CompanyEntity) {
@@ -21,6 +24,7 @@ export class CompanyService {
     if (validationResult.error)
       throw JoiErrorHandling.JoiErrorHandling(validationResult.error.details)
 
+    // await this.#baseRepository.save(companyTy)
     await CompanyRepo.save(companyTy)
 
     const dataEmail = DataToConfirmRegistration.getInformationFromEmail(companyTy.email)
