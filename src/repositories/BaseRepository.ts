@@ -22,7 +22,7 @@ export class BaseRepository<T> {
     await this.database.table(this.table).insert(data)
   }
 
-  async update(data: any, id: string) {
+  async update(data: T, id: string) {
     return await this.database.table(this.table)
       .update(data)
       .where('id', '=', id)
