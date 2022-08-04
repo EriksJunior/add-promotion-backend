@@ -23,4 +23,5 @@
 
 
 ### Tasks
+Follow Me 👨🏻‍💻
 Trello: https://trello.com/b/RXXlugPI/promotionapp
