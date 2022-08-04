@@ -12,11 +12,17 @@ export class CompanyRepo extends BaseRepository<CompanyEntity> {
     this.#database = database
   }
 
-  async findByEmail(email: string):Promise<CompanyEntity[]> {
+  async findByEmail(email: string): Promise<CompanyEntity[]> {
     const result = await this.#database.select('email')
-    .table(this.#table)
-    .where('email', '=', email)
+      .table(this.#table)
+      .where('email', '=', email)
 
     return result
+  }
+
+  async confirmUser(id: string, confirmed: object): Promise<any> {
+    return await this.#database.table(this.#table)
+      .update(confirmed)
+      .where('id', '=', id)
   }
 }

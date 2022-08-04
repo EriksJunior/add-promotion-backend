@@ -15,7 +15,8 @@ export class CompanyController {
 
       return res.status(201).json(data)
     } catch (error: any) {
-      return res.status(400).json({ error: error })
+      console.log(error)
+      return res.status(422).json({Erro: error.message, statusCode: error.statusCode})
     }
   }
 
@@ -51,7 +52,17 @@ export class CompanyController {
     } catch (error: any) {
       return res.status(500).json({ error: error.message })
     }
+  }
 
+  async confirmUser(req: Request, res: Response): Promise<Response>{
+    try {
+      const {companyId} = req.query
+      await this.#companyService.confirmUser(companyId as string)      
+
+      return res.status(200).json({message: 'E-mail confirmado com sucesso!'})
+    } catch (error: any) {
+      return res.status(error.statusCode).json({ error: error.message })
+    }
   }
 
 }

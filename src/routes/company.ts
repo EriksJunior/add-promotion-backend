@@ -16,6 +16,10 @@ router.put('/updatecompany/:id', (request, response) => {
   return companyController.update(request, response)
 })
 
+router.get('/confirmed/email', (request, response) => {
+  return companyController.confirmUser(request, response)
+})
+
 router.delete('/deletecompany/:id', (request, response) => {
   return companyController.delete(request, response)
 })
