@@ -23,5 +23,6 @@
 
 
 ### Tasks
-Follow Me 👨🏻‍💻
+		
+Accompany Me 💻</br>
 Trello: https://trello.com/b/RXXlugPI/promotionapp
