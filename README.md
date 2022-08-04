@@ -1,4 +1,4 @@
-#App to advertise promotions
+# App to advertise promotions
 
 <h4 align="center"> 
 	<h2>🚧  Under construction...  🚧<h2>
