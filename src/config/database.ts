@@ -1,7 +1,7 @@
 import { Knex } from 'knex'
 
 
-const knex:Knex  = require('knex')({
+const knex: Knex = require('knex')({
   client: 'mysql',
   connection: {
     host: process.env.HOST,
