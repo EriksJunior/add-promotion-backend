@@ -20,3 +20,7 @@
 - [ ] promotion registration
 - [ ] favorite promotion
 - [ ] chat
+
+
+### Tasks
+Trello: https://trello.com/b/RXXlugPI/promotionapp
