@@ -1,16 +1,16 @@
 import { Knex } from "knex";
 export class BaseRepository<T> {
-  private table: string
-  private database: Knex
+  #table: string
+  #database: Knex
 
   constructor(table: string, database: Knex) {
-    this.table = table;
-    this.database = database;
+    this.#table = table;
+    this.#database = database;
   }
 
   async findById(id: string): Promise<T> {
-    const data = await this.database.select('*')
-      .table(this.table)
+    const data = await this.#database.select('*')
+      .table(this.#table)
       .where('id', '=', id)
       .first()
 
@@ -19,17 +19,17 @@ export class BaseRepository<T> {
 
   async save(data: any) {
     data.createdAt = new Date();
-    await this.database.table(this.table).insert(data)
+    await this.#database.table(this.#table).insert(data)
   }
 
   async update(data: T, id: string) {
-    return await this.database.table(this.table)
+    return await this.#database.table(this.#table)
       .update(data)
       .where('id', '=', id)
   }
 
   async delete(id: string) {
-    return await this.database.table(this.table)
+    return await this.#database.table(this.#table)
       .delete()
       .where('id', '=', id)
   }
