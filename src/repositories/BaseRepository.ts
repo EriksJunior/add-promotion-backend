@@ -19,7 +19,8 @@ export class BaseRepository<T> {
 
   async save(data: any) {
     data.createdAt = new Date();
-    await this.#database.table(this.#table).insert(data)
+
+    return await this.#database.table(this.#table).insert(data)
   }
 
   async update(data: T, id: string) {
