@@ -20,7 +20,7 @@ export class CompanyService {
     const userAlreadyExists = await this.#companyRepo.findByEmail(body.email)
 
     if (userAlreadyExists.length)
-      throw new GenericException('Usuário já existe.', {})
+      throw new GenericException('Este email já esta em uso!.', {})
 
     const companyTy = new CompanyEntity(body)
 

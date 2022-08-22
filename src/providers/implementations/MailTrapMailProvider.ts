@@ -7,10 +7,10 @@ export class MailtrapMailProvider implements IMailProvider {
 
   constructor() {
     this.#transporte = nodemailder.createTransport({
-      service: process.env.APP_SERVICE_GMAIL,
+      service: process.env.APP_SERVICE_EMAIL,
       auth: {
         user: process.env.APP_EMAIL,
-        pass: process.env.APP_PASSWORD_GMAIL
+        pass: process.env.APP_PASSWORD_EMAIL
       }
     })
   }
