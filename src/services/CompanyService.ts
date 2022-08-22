@@ -31,7 +31,7 @@ export class CompanyService {
 
     await this.#companyRepo.save(companyTy)
 
-    const dataEmail = DataToConfirmRegistration.getInformationFromEmail(companyTy.email)
+    const dataEmail = DataToConfirmRegistration.getInformationFromEmail(companyTy.email, companyTy.id)
     await this.#mailProvider.sendMail(dataEmail)
 
     return companyTy.id
@@ -73,7 +73,6 @@ export class CompanyService {
 
   async confirmUser(id: string) {
     const userConfirm = await this.#companyRepo.findById(id)
-
     if (userConfirm?.confirmed) {
       throw new GenericException('E-mail já confirmado!', {}, 403)
     } else if (userConfirm === undefined) {
