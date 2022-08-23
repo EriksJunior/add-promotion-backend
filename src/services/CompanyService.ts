@@ -90,9 +90,8 @@ export class CompanyService {
 
       await this.#mailProvider.sendMail(dataEmail)
     } else {
-      throw new GenericException('E-mail já confirmado na nossa base e dados!', {}, 422)
+      throw new GenericException('E-mail já confirmado na nossa base e dados!', {}, 403)
     }
-
 
     return userExists
   }
