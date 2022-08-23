@@ -20,6 +20,10 @@ router.get('/confirmed/email', (request, response) => {
   return companyController.confirmUser(request, response)
 })
 
+router.get('/resend/confirmation/email', (request, response) => {
+  return companyController.resendConfirmationEmail(request, response)
+})
+
 router.delete('/deletecompany/:id', (request, response) => {
   return companyController.delete(request, response)
 })

@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { CompanyEntity } from '../entities/CompanyEntity'
 import { CompanyService } from '../services/CompanyService'
 
 export class CompanyController {
@@ -13,7 +14,7 @@ export class CompanyController {
       const dataUser = req.body
       const data = await this.#companyService.save(dataUser)
 
-      return res.status(201).json({id: data, message: 'Confirme seu e-mail!'})
+      return res.status(201).json({ id: data, message: 'Confirme seu e-mail!' })
     } catch (error: any) {
       return res.status(422).json({ Erro: error.message, statusCode: error.statusCode })
     }
@@ -59,6 +60,17 @@ export class CompanyController {
       await this.#companyService.confirmUser(companyId as string)
 
       return res.status(200).json({ message: 'E-mail confirmado com sucesso!' })
+    } catch (error: any) {
+      return res.status(error.statusCode).json({ error: error.message })
+    }
+  }
+
+  async resendConfirmationEmail(req: Request, res: Response): Promise<Response> {
+    try {
+      const { email } = req.query
+      await this.#companyService.resendConfirmationEmail(email as string)
+
+      return res.status(200).json({ message: 'E-mail de confirmação reenviado!' })
     } catch (error: any) {
       return res.status(error.statusCode).json({ error: error.message })
     }

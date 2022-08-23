@@ -12,10 +12,11 @@ export class CompanyRepo extends BaseRepository<CompanyEntity> {
     this.#database = database
   }
 
-  async findByEmail(email: string): Promise<CompanyEntity[]> {
-    const result = await this.#database.select('email')
+  async findByEmail(email: string): Promise<CompanyEntity> {
+    const result = await this.#database.select('email', 'confirmed', 'id')
       .table(this.#table)
       .where('email', '=', email)
+      .first()
 
     return result
   }

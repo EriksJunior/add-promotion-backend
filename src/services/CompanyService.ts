@@ -19,7 +19,7 @@ export class CompanyService {
   async save(body: CompanyEntity) {
     const userAlreadyExists = await this.#companyRepo.findByEmail(body.email)
 
-    if (userAlreadyExists.length)
+    if (userAlreadyExists)
       throw new GenericException('Este email já esta em uso!.', {})
 
     const companyTy = new CompanyEntity(body)
@@ -80,6 +80,21 @@ export class CompanyService {
     }
 
     return await this.#companyRepo.confirmUser(id, { confirmed: true })
+  }
+
+  async resendConfirmationEmail(email: string) {
+    const userExists = await this.#companyRepo.findByEmail(email)
+
+    if (!userExists.confirmed) {
+      const dataEmail = DataToConfirmRegistration.getInformationFromEmail(userExists.email, userExists.id)
+
+      await this.#mailProvider.sendMail(dataEmail)
+    } else {
+      throw new GenericException('E-mail já confirmado na nossa base e dados!', {}, 400)
+    }
+
+
+    return userExists
   }
 
 }
