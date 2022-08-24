@@ -20,7 +20,7 @@ app.use(express.json())
 //   } catch (error) {
 //     console.log(error)
 //   }
-// }, 518400000)
+// }, 604800000)
 
 // 604800000, 7 days in ms
 
