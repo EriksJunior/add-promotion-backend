@@ -13,14 +13,13 @@ const route = Router();
 app.use(cors())
 app.use(express.json())
 
-// setInterval(async () => {
-//   try {
-//     const teste =  knex.raw(`delete from company WHERE createdAt < date_sub( NOW(), INTERVAL 7 DAY) and id = 'be22169c-b4d7-44fe-8dd4-e852a5ddf450' and confirmed = 0`)
-//     console.log(teste.toQuery())
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }, 604800000)
+setInterval(async () => {
+  try {
+    await knex.raw(`delete FROM company where date_format(createdAt, '%Y-%m-%d') = date_format(DATE_ADD(NOW(), INTERVAL -7 DAY), '%Y-%m-%d') and id = '2f90e873-6e4a-4407-a4e0-da25857a0f93' and confirmed = 0`)
+  } catch (error) {
+    console.log(error)
+  }
+}, 604800000)
 
 // 604800000, 7 days in ms
 
