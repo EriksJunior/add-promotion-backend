@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 
-class HandlePassword{
+class HandlePassword {
   async encrypt(password: string) {
     return await bcrypt.hash(password, 10)
   }

@@ -7,6 +7,7 @@ import { GenericException } from "../utils/exceptions/GenericException";
 
 import companyValidate from "../validators/CompanyValidate";
 import DataToConfirmRegistration from "../utils/DataToConfirmRegistration";
+import HandlePassword from "../utils/HandlePassword";
 export class CompanyService {
   #mailProvider: IMailProvider
   #companyRepo: CompanyRepo
@@ -28,6 +29,8 @@ export class CompanyService {
 
     if (validationResult.error)
       throw JoiErrorHandling.JoiErrorHandling(validationResult.error.details)
+
+    companyTy.password = await HandlePassword.encrypt(companyTy.password)
 
     await this.#companyRepo.save(companyTy)
 
