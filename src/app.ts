@@ -1,30 +1,27 @@
-import cors from 'cors'
-import 'dotenv/config'
 import express from 'express'
 import { Router, Request, Response } from 'express';
-import knex from './config/database'
 
+import {ExpiredEmail} from './utils/ExpiredEmail';
+import database from './config/database'
+
+import cors from 'cors'
+import 'dotenv/config'
 
 import index from './routes/index'
 
 const app = express()
 const route = Router();
+const expiredEmail = new ExpiredEmail(database)
+
 
 app.use(cors())
 app.use(express.json())
 
-setInterval(async () => {
-  try {
-    await knex.raw(`delete FROM company where date_format(createdAt, '%Y-%m-%d') = date_format(DATE_ADD(NOW(), INTERVAL -7 DAY), '%Y-%m-%d') and id = '2f90e873-6e4a-4407-a4e0-da25857a0f93' and confirmed = 0`)
-  } catch (error) {
-    console.log(error)
-  }
-}, 604800000)
-
-// 604800000, 7 days in ms
+expiredEmail.delete()
 
 app.use(route)
 app.use(index)
+
 
 
 route.get('/', (req: Request, res: Response) => {

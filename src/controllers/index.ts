@@ -10,7 +10,6 @@ import { CompanyRepo } from "../repositories/CompanyRepo";
 
 
 
-
 const mailTrapMailProvider = new MailtrapMailProvider()
 
 const companyRepo = new CompanyRepo(database)
