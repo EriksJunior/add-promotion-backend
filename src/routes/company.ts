@@ -1,11 +1,13 @@
 import { request, response, Router } from "express";
 
 import { companyController } from "../controllers";
+import HandleAuthorization from '../auth/HandleAuthorization'
 
 const router = Router();
 
-router.post('/createcompany', (request, response) => {
-  return companyController.create(request, response)
+router.post('/createcompany', (request, response, next) => {
+  HandleAuthorization.auth();
+  // return companyController.create(request, response)
 })
 
 router.get('/searchcompany/:id', (request, response) => {
