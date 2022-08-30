@@ -1,11 +1,11 @@
-import { request, response, Router } from "express";
+import { Request, Response, Router, NextFunction } from "express";
 
 import { companyController } from "../controllers";
 import HandleAuthorization from '../auth/HandleAuthorization'
 
 const router = Router();
 
-router.post('/createcompany', (request, response, next) => {
+router.post('/createcompany', (request: Request, response: Response, next: NextFunction) => {
   HandleAuthorization.auth();
   // return companyController.create(request, response)
 })
