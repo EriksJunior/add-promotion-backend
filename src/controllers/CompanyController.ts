@@ -19,17 +19,6 @@ export class CompanyController {
     }
   }
 
-  async search(req: Request, res: Response): Promise<Response> {
-    try {
-      const id = req.params.id
-      const data = await this.#companyService.search(id)
-
-      return res.status(200).json(data)
-    } catch (error: any) {
-      return res.status(400).json({ error: error.message })
-    }
-  }
-
   async update(req: Request, res: Response): Promise<Response> {
     try {
       const id = req.params.id

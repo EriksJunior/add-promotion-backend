@@ -1,13 +1,10 @@
 import { Request, Response, NextFunction } from 'express'
+import { ITokenPayload } from '../interfaces/ITokenPayload'
 
 import HandleAuthorization from '../utils/HandleAuthorization'
 
 
-interface ITokenPayload {
-  id: string
-  iat: number
-  exp: number
-}
+
 
 class AuthMiddleware {
   auth(req: Request, res: Response, next: NextFunction) {
@@ -22,7 +19,7 @@ class AuthMiddleware {
       const data = HandleAuthorization.verifyTokenJwt(token)
       const { id } = data as ITokenPayload
 
-      req.id_company = id
+      req.idCompany = id
       next()
 
     } catch (error: any) {

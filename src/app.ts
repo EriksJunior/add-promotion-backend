@@ -2,6 +2,7 @@ import express from 'express'
 import { Router, Request, Response } from 'express';
 
 import {ExpiredEmail} from './utils/ExpiredEmail';
+import AuthMiddleware from './middlewares/AuthMiddleware';
 import database from './config/database'
 
 import cors from 'cors'

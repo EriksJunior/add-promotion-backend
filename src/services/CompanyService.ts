@@ -40,15 +40,6 @@ export class CompanyService {
     return companyTy.id
   }
 
-  async search(id: string) {
-    const result = await this.#companyRepo.findById(id)
-
-    if (!result)
-      throw new GenericException('Erro ao buscar informações do cliente', {})
-
-    return result
-  }
-
   async update(body: CompanyEntity, id: string) {
     const companyTy = new CompanyEntity(body, id)
 

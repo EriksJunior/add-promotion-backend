@@ -5,12 +5,8 @@ import AuthMiddleware from "../middlewares/AuthMiddleware";
 
 const router = Router();
 
-router.post('/createcompany',  AuthMiddleware.auth, (req: Request, res: Response, next: NextFunction) => {
+router.post('/createcompany', (req: Request, res: Response, next: NextFunction) => {
   return companyController.create(req, res)
-})
-
-router.get('/searchcompany/:id', AuthMiddleware.auth, (req, res) => {
-  return companyController.search(req, res)
 })
 
 router.put('/updatecompany/:id', AuthMiddleware.auth, (req, res) => {
