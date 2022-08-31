@@ -13,7 +13,7 @@ export class CompanyRepo extends BaseRepository<CompanyEntity> {
   }
 
   async findByEmail(email: string): Promise<CompanyEntity> {
-    const result = await this.#database.select('email', 'confirmed', 'id')
+    const result = await this.#database.select('*')
       .table(this.#table)
       .where('email', '=', email)
       .first()
