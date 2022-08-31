@@ -1,8 +1,11 @@
 import jwt, { Secret } from "jsonwebtoken";
-
 class HandleAuthorization {
   generateTokenJwt(id: string) {
-    return jwt.sign({ id: id }, process.env.SECRET as Secret, { expiresIn: "2 days" })
+    return jwt.sign({ id: id }, process.env.SECRET_JWT as Secret, { expiresIn: "2 days" })
+  }
+
+  verifyTokenJwt(token: string) {
+    return jwt.verify(token, process.env.SECRET_JWT as Secret)
   }
 }
 

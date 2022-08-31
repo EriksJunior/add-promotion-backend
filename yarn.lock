@@ -1483,6 +1483,19 @@ ecdsa-sig-formatter@1.0.11:
   dependencies:
     safe-buffer "^5.0.1"
 
+edge-cs@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/edge-cs/-/edge-cs-1.2.1.tgz#bd1a9ecdb94ef0ed40c894582046749e57045e5a"
+  integrity sha512-N5KAeMBhhCbCGmb5oiHJ0KcuTksZzo8lg+uByEUCZAdnLPHizHkk6ZIuuTD63eez7+W25ZSvsGS5+FtymxFoKw==
+
+edge-js@^18.4.0:
+  version "18.4.0"
+  resolved "https://registry.yarnpkg.com/edge-js/-/edge-js-18.4.0.tgz#f3405718cf6d82db2ed9f951c6e665e181f498e1"
+  integrity sha512-oAwqae0wkiwlO7/gbrkKOavJoXOJ4b7zzonOXc5QTIMhCpIioA2si9eIjwgKD9oDcAjHj3oBabtbFVLgFQ4wDQ==
+  dependencies:
+    edge-cs "1.2.1"
+    nan "^2.14.0"
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
@@ -2614,6 +2627,11 @@ mysql@^2.18.1:
     readable-stream "2.3.7"
     safe-buffer "5.1.2"
     sqlstring "2.3.1"
+
+nan@^2.14.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.16.0.tgz#664f43e45460fb98faf00edca0bb0d7b8dce7916"
+  integrity sha512-UdAqHyFngu7TfQKsCBgAA6pWDkT8MAO7d0jyOecVhN5354xbLqdn8mV9Tat9gepAupm0bt2DbeaSC8vS52MuFA==
 
 natural-compare@^1.4.0:
   version "1.4.0"

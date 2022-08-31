@@ -1,10 +1,10 @@
-import { Request, Response, Router, NextFunction } from "express";
+import { Request, Response, Router } from "express";
 
 import { authController } from "../controllers";
 
 const router = Router()
 
-router.post('/', (req: Request, res: Response, next: NextFunction) =>{
+router.post('/', (req: Request, res: Response) =>{
   return authController.Company(req, res)
 })
 
