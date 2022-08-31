@@ -1,5 +1,4 @@
 import { Request, Response } from 'express'
-import { CompanyEntity } from '../entities/CompanyEntity'
 import { CompanyService } from '../services/CompanyService'
 
 export class CompanyController {

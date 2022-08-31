@@ -5,8 +5,8 @@ class HandlePassword {
     return await bcrypt.hash(password, 10)
   }
 
-  async compare(password: string, hash: string) {
-    return await bcrypt.compare(password, hash)
+  compare(password: string, hash: string) {
+    return bcrypt.compareSync(password, hash)
   }
 }
 
