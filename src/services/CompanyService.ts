@@ -99,5 +99,9 @@ export class CompanyService {
     return userExists
   }
 
+  async findByEmail(email: string) {
+    return await this.#companyRepo.findByEmail(email)
+  }
+
 }
 
