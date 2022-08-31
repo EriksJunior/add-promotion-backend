@@ -3,6 +3,7 @@ import database from '../config/database'
 import { MailtrapMailProvider } from "../providers/implementations/MailTrapMailProvider";
 
 import { CompanyController } from "./CompanyController";
+import { Auth } from './AuthController';
 
 import { CompanyService } from "../services/CompanyService";
 
@@ -23,5 +24,9 @@ const companyController = new CompanyController(
   companyService
 )
 
+const authController = new Auth(
+  companyService
+)
 
-export { companyController }
+
+export { companyController, authController }
