@@ -6,7 +6,7 @@ const config: { [key: string]: Knex.Config } = {
   development: {
     client: "mysql",
     connection: {
-      database: process.env.DATABASE_NAME || 'promotion',
+      database: process.env.DATABASE_NAME || 'addpromotion',
       user: process.env.USER || 'root',
       password: process.env.PASSWORD || '123456'
     }
@@ -15,7 +15,7 @@ const config: { [key: string]: Knex.Config } = {
   staging: {
     client: "mysql",
     connection: {
-      database: process.env.DATABASE_NAME || 'promotion',
+      database: process.env.DATABASE_NAME || 'addpromotion',
       user: process.env.USER || 'root',
       password: process.env.PASSWORD || '123456'
     },

@@ -2,7 +2,7 @@ import { Knex } from "knex";
 
 
 export async function up(knex: Knex): Promise<void> {
-  return knex.schema.createTable('promotions', (table) =>{
+  return knex.schema.createTable('promotion', (table) =>{
     table.string('id').notNullable().primary()
     table.string('idCompany').notNullable()
     table.string('photo').defaultTo(null)

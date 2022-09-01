@@ -1,15 +1,14 @@
 import { Knex } from "knex";
 
-
 export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('product', (table) =>{
     table.string('id').notNullable().primary()
-    table.string('idCompany').notNullable()
-    table.string('idMeasurements').defaultTo(null)
-    table.string('idCategory')
-    table.decimal('value').defaultTo(0.00)
+    table.integer('idCompany').notNullable()
+    table.integer('idMeasurements').defaultTo(null)
+    table.string('idCategory').defaultTo(null)
+    table.decimal('price', 6, 2).defaultTo(0.00)
     table.float('inventory').defaultTo(0.00)
-    table.float('inventoryBySize')
+    table.integer('inventoryBySize')
     table.string('description').defaultTo(null)
   })
 }
