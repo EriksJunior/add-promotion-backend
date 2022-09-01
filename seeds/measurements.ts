@@ -33,6 +33,5 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 25, description: "43/44" },
         { id: 26, description: "44" },
         { id: 27, description: "46" },
-
     ]);
 };
