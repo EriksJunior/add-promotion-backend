@@ -2,10 +2,10 @@ import { Knex } from "knex";
 
 export async function seed(knex: Knex): Promise<void> {
     // Deletes ALL existing entries
-    await knex("category").del();
+    await knex("categories").del();
 
     // Inserts seed entries
-    await knex("category").insert([
+    await knex("categories").insert([
         { id: 1, description: "Alimentos e Bebidas" },
         { id: 2, description: "Calçados, Roupas e Bolsas" },
         { id: 3, description: "Papelaria" },
