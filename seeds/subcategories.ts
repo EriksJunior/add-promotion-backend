@@ -12,7 +12,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 4, idCategory: 1, description: "Frescos" },
         { id: 5, idCategory: 1, description: "Mercearia" },
         { id: 6, idCategory: 1, description: "Outros" },
-
         { id: 7, idCategory: 2, description: "Acessórios de Moda" },
         { id: 8, idCategory: 2, description: "Agasalhos" },
         { id: 9, idCategory: 2, description: "Bermudas e Shorts" },
@@ -34,10 +33,8 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 25, idCategory: 2, description: "Ternos" },
         { id: 26, idCategory: 2, description: "Vestidos" },
         { id: 26, idCategory: 2, description: "Outros" },
-        
         { id: 27, idCategory: 3, description: "Materiais Escolares" },
         { id: 28, idCategory: 3, description: "Outros" },
-
         { id: 29, idCategory: 4, description: "Artefatos para Cabelo" },
         { id: 30, idCategory: 4, description: "Artigos para Cabeleireiros" },
         { id: 31, idCategory: 4, description: "Barbearia" },
@@ -51,7 +48,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 39, idCategory: 4, description: "Perfumes e Fragrâncias" },
         { id: 40, idCategory: 4, description: "Tratamentos de Beleza" },
         { id: 41, idCategory: 4, description: "Outros" },
-
         { id: 42, idCategory: 5, description: "Álbuns e Figurinhas" },
         { id: 43, idCategory: 5, description: "Anti-stress e Engenho" },
         { id: 44, idCategory: 5, description: "Ar Livre e Playground" },
@@ -76,7 +72,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 63, idCategory: 5, description: "Piscinas e Infláveis" },
         { id: 64, idCategory: 5, description: "Veículos de Brinquedo" },
         { id: 65, idCategory: 5, description: "Outros" },
-
         { id: 66, idCategory: 8, description: "Banheiros" },
         { id: 67, idCategory: 8, description: "Camas, Colchões e Acessórios" },
         { id: 68, idCategory: 8, description: "Cozinha" },
@@ -89,7 +84,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 75, idCategory: 8, description: "Segurança para Casa" },
         { id: 76, idCategory: 8, description: "Têxteis de Casa e Decoração" },
         { id: 77, idCategory: 8, description: "Outros" },
-
         { id: 78, idCategory: 9, description: "Acessórios para Celulares" },
         { id: 79, idCategory: 9, description: "Celulares e Smartphones" },
         { id: 80, idCategory: 9, description: "Óculos de Realidade Virtual" },
@@ -99,7 +93,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 84, idCategory: 9, description: "Telefonia Fixa e Sem Fio" },
         { id: 85, idCategory: 9, description: "VoIP" },
         { id: 86, idCategory: 9, description: "Outros" },
-
         { id: 87, idCategory: 10, description: "Acessórios de Construção" },
         { id: 88, idCategory: 10, description: "Encanamento" },
         { id: 89, idCategory: 10, description: "Energia" },
@@ -110,7 +103,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 94, idCategory: 10, description: "Mobiliário para Cozinhas" },
         { id: 95, idCategory: 10, description: "Pisos e Rejuntes" },
         { id: 96, idCategory: 10, description: "Outros" },
-
         { id: 97, idCategory: 11, description: "Ar e Ventilação" },
         { id: 98, idCategory: 11, description: "Bebedouros e Purificadores" },
         { id: 99, idCategory: 11, description: "Cuidado Pessoal" },
@@ -119,7 +111,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 102, idCategory: 11, description: "Pequenos Eletrodomésticos" },
         { id: 103, idCategory: 11, description: "Refrigeração" },
         { id: 104, idCategory: 11, description: "Outros" },
-
         { id: 105, idCategory: 12, description: "Acessórios para Áudio e Vídeo" },
         { id: 106, idCategory: 12, description: "Acessórios para TV" },
         { id: 107, idCategory: 12, description: "Aparelhos DVD e Bluray" },
@@ -135,7 +126,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 117, idCategory: 12, description: "Projetores e Telas" },
         { id: 118, idCategory: 12, description: "Televisores" },
         { id: 119, idCategory: 12, description: "Outros Eletrônicos" },
-
         { id: 120, idCategory: 16, description: "Acessórios para Consoles" },
         { id: 121, idCategory: 16, description: "Acessórios para PC Gaming" },
         { id: 122, idCategory: 16, description: "Consoles" },
@@ -143,7 +133,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 124, idCategory: 16, description: "Peças para Consoles" },
         { id: 125, idCategory: 16, description: "Video Games" },
         { id: 126, idCategory: 16, description: "Outros" },
-
         { id: 127, idCategory: 17, description: "Apartamentos" },
         { id: 128, idCategory: 17, description: "Casas" },
         { id: 129, idCategory: 17, description: "Chácaras" },
@@ -154,7 +143,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 134, idCategory: 17, description: "Sítios" },
         { id: 135, idCategory: 17, description: "Terrenos" },
         { id: 136, idCategory: 17, description: "Outros Imóveis" },
-
         { id: 137, idCategory: 18, description: "Acessórios de Antiestática" },
         { id: 138, idCategory: 18, description: "Acessórios para PC Gaming" },
         { id: 139, idCategory: 18, description: "Armazenamento" },
@@ -174,7 +162,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 153, idCategory: 18, description: "Software" },
         { id: 154, idCategory: 18, description: "Tablets e Acessórios" },
         { id: 155, idCategory: 18, description: "Outros" },
-
         { id: 156, idCategory: 20, description: "Baterias e Percussão" },
         { id: 157, idCategory: 20, description: "Caixas de Som" },
         { id: 158, idCategory: 20, description: "Equipamento para DJs" },
@@ -187,7 +174,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 165, idCategory: 20, description: "Pedais e Acessórios" },
         { id: 166, idCategory: 20, description: "Pianos e Teclados" },
         { id: 167, idCategory: 20, description: "Outros" },
-
         { id: 168, idCategory: 21, description: "Acessórios Para Relógios" },
         { id: 169, idCategory: 21, description: "Artigos de Joalharia" },
         { id: 170, idCategory: 21, description: "Canetas e Lapiseiras de Luxo" },
@@ -197,7 +183,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 174, idCategory: 21, description: "Porta Joias" },
         { id: 175, idCategory: 21, description: "Relógios" },
         { id: 176, idCategory: 21, description: "Outros" },
-
         { id: 177, idCategory: 22, description: "Catálogos" },
         { id: 178, idCategory: 22, description: "Ebooks" },
         { id: 179, idCategory: 22, description: "HQs" },
@@ -205,14 +190,12 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 181, idCategory: 22, description: "Mangá" },
         { id: 182, idCategory: 22, description: "Revistas" },
         { id: 183, idCategory: 22, description: "Outros" },
-
         { id: 184, idCategory: 23, description: "Filmes" },
         { id: 185, idCategory: 23, description: "Filmes Online" },
         { id: 186, idCategory: 23, description: "Música" },
         { id: 187, idCategory: 23, description: "Seriados" },
         { id: 188, idCategory: 23, description: "Seriados Online" },
         { id: 189, idCategory: 23, description: "Outros" },
-
         { id: 190, idCategory: 24, description: "Cuidado da Saúde" },
         { id: 191, idCategory: 24, description: "Equipamento Médico" },
         { id: 192, idCategory: 24, description: "Massagem" },
@@ -221,7 +204,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 195, idCategory: 24, description: "Suplementos Alimentares" },
         { id: 196, idCategory: 24, description: "Terapias Alternativas" },
         { id: 197, idCategory: 24, description: "Outros" },
-
         { id: 198, idCategory: 25, description: "Academia e Esportes" },
         { id: 199, idCategory: 25, description: "Animais" },
         { id: 200, idCategory: 25, description: "Beleza, Estética e Bem Estar" },
@@ -238,7 +220,6 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 211, idCategory: 25, description: "Veículos e Transportes" },
         { id: 212, idCategory: 25, description: "Vestuário" },
         { id: 213, idCategory: 25, description: "Viagens e Turismo" },
-
         { id: 214, idCategory: 26, description: "Aces. de Carros e Caminhonetes" },
         { id: 215, idCategory: 26, description: "Aces. de Motos e Quadriciclos" },
         { id: 216, idCategory: 26, description: "Acessórios Náuticos" },
@@ -262,11 +243,5 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 234, idCategory: 26, description: "Tags de Pagamento de Pedágio" },
         { id: 235, idCategory: 26, description: "Tuning" },
         { id: 236, idCategory: 26, description: "Outros" },
-
-
-
-
-
-
     ]);
 };
