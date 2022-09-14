@@ -51,7 +51,7 @@ export class CompanyService {
     const result = await this.#companyRepo.update(companyTy, id)
 
     if (!result)
-      throw new GenericException('Não foi possível atualizar informações do cliente', {})
+      throw new GenericException('Não foi possível atualizar informações do empresa', {})
 
     return
   }
