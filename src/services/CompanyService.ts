@@ -1,11 +1,11 @@
-import JoiErrorHandling from "../utils/exceptions/JoiErrorHandlingJoi";
 import { IMailProvider } from "../interfaces/IMailProvider";
+import { ValidationException } from "../utils/exceptions/ValidationException";
 
 import { CompanyRepo } from "../repositories/CompanyRepo";
 import { CompanyEntity } from "../entities/CompanyEntity";
 import { GenericException } from "../utils/exceptions/GenericException";
 
-import companyValidate from "../validators/CompanyValidate";
+import { CompanyValidate } from "../validators/CompanyValidate";
 import DataToConfirmRegistration from "../utils/DataToConfirmRegistration";
 import HandlePassword from "../utils/HandlePassword";
 export class CompanyService {
@@ -25,10 +25,7 @@ export class CompanyService {
 
     const companyTy = new CompanyEntity(body)
 
-    const validationResult = companyValidate.validate(companyTy)
-
-    if (validationResult.error)
-      throw JoiErrorHandling.JoiErrorHandling(validationResult.error.details)
+    CompanyValidate(companyTy)
 
     companyTy.password = await HandlePassword.encrypt(companyTy.password)
 
@@ -43,10 +40,7 @@ export class CompanyService {
   async update(body: CompanyEntity, id: string) {
     const companyTy = new CompanyEntity(body, id)
 
-    const validationResult = companyValidate.validate(companyTy)
-
-    if (validationResult.error)
-      throw JoiErrorHandling.JoiErrorHandling(validationResult.error.details)
+    CompanyValidate(companyTy)
 
     const result = await this.#companyRepo.update(companyTy, id)
 

@@ -32,7 +32,7 @@ export async function seed(knex: Knex): Promise<void> {
         { id: 24, idCategory: 2, description: "Saias" },
         { id: 25, idCategory: 2, description: "Ternos" },
         { id: 26, idCategory: 2, description: "Vestidos" },
-        { id: 26, idCategory: 2, description: "Outros" },
+        { id: 237, idCategory: 2, description: "Outros" },
         { id: 27, idCategory: 3, description: "Materiais Escolares" },
         { id: 28, idCategory: 3, description: "Outros" },
         { id: 29, idCategory: 4, description: "Artefatos para Cabelo" },
