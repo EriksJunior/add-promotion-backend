@@ -15,7 +15,7 @@ export class CompanyController {
 
       return res.status(201).json({ id: data, message: 'Confirme seu e-mail!' })
     } catch (error: any) {
-      return res.status(422).json({ Erro: error.message, statusCode: error.statusCode })
+      return res.status(422).json(error.erros)
     }
   }
 

@@ -1,5 +1,4 @@
 import { IMailProvider } from "../interfaces/IMailProvider";
-import { ValidationException } from "../utils/exceptions/ValidationException";
 
 import { CompanyRepo } from "../repositories/CompanyRepo";
 import { CompanyEntity } from "../entities/CompanyEntity";
@@ -11,10 +10,11 @@ import HandlePassword from "../utils/HandlePassword";
 export class CompanyService {
   #mailProvider: IMailProvider
   #companyRepo: CompanyRepo
-
-  constructor(mailProvider: IMailProvider, companyRepo: CompanyRepo) {
+  #companyValidate: typeof CompanyValidate
+  constructor(mailProvider: IMailProvider, companyRepo: CompanyRepo, companyValidate: typeof CompanyValidate) {
     this.#mailProvider = mailProvider
     this.#companyRepo = companyRepo
+    this.#companyValidate = companyValidate
   }
 
   async save(body: CompanyEntity) {
@@ -25,7 +25,7 @@ export class CompanyService {
 
     const companyTy = new CompanyEntity(body)
 
-    CompanyValidate(companyTy)
+    this.#companyValidate(companyTy)
 
     companyTy.password = await HandlePassword.encrypt(companyTy.password)
 
