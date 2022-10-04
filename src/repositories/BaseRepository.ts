@@ -23,7 +23,13 @@ export class BaseRepository<T> {
     return await this.#database.table(this.#table).insert(data)
   }
 
-  async update(data: T, id: string) {
+  async findCompanyPerPage(page: number | string) {
+    return await this.#database.select('*').table(this.#table)
+      .limit(10)
+      .offset((parseInt(`${page}`) - 1) * 10)
+  }
+
+  async update(data: any, id: string) {
     return await this.#database.table(this.#table)
       .update(data)
       .where('id', '=', id)

@@ -3,9 +3,6 @@ import { ITokenPayload } from '../interfaces/ITokenPayload'
 
 import HandleAuthorization from '../utils/HandleAuthorization'
 
-
-
-
 class AuthMiddleware {
   auth(req: Request, res: Response, next: NextFunction) {
     try {

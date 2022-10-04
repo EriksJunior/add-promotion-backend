@@ -13,6 +13,10 @@ router.put('/updatecompany/:id', AuthMiddleware.auth, (req, res) => {
   return companyController.update(req, res)
 })
 
+router.get('/company/per/page/:page', (req, res) => {
+  return companyController.findCompanyPerPage(req, res)
+})
+
 router.get('/confirmed/email', AuthMiddleware.auth, (req, res) => {
   return companyController.confirmUser(req, res)
 })

@@ -15,6 +15,7 @@ export class CompanyController {
 
       return res.status(201).json({ id: data, message: 'Confirme seu e-mail!' })
     } catch (error: any) {
+      console.log(error)
       return res.status(422).json(error.erros)
     }
   }
@@ -61,6 +62,17 @@ export class CompanyController {
       return res.status(200).json({ message: 'E-mail de confirmação reenviado!' })
     } catch (error: any) {
       return res.status(error.statusCode).json({ error: error.message })
+    }
+  }
+
+  async findCompanyPerPage(req: Request, res: Response) {
+    try {
+      const page = req.params.page
+
+      const result = await this.#companyService.findCompanyPerPage(page)
+      return res.status(200).json(result)
+    } catch (error: any) {
+      return res.status(500).json({ error: error.message })
     }
   }
 

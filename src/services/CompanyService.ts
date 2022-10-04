@@ -19,9 +19,8 @@ export class CompanyService {
 
   async save(body: CompanyEntity) {
     const userAlreadyExists = await this.#companyRepo.findByEmail(body.email)
-
     if (userAlreadyExists)
-      throw new GenericException('Este email já esta em uso!.', {})
+      throw new GenericException('Error email','Este email já esta em uso!.', 422)
 
     const companyTy = new CompanyEntity(body)
 
@@ -86,6 +85,10 @@ export class CompanyService {
 
   async findByEmail(email: string) {
     return await this.#companyRepo.findByEmail(email)
+  }
+
+  async findCompanyPerPage(page: number | string){
+    return await this.#companyRepo.findCompanyPerPage(page)
   }
 
 }
