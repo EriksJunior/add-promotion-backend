@@ -15,7 +15,7 @@
 
 ### Finished features
 
-- [ ] company registration
+- [X] company registration
 - [ ] cliente registration
 - [ ] promotion registration
 - [ ] favorite promotion
